@@ -1,3 +1,6 @@
+sphinx-markdown-tables==0.0.17
+Sphinx==5.1.1
+recommonmark==0.8.1
 absl-py==1.4.0
 affine @ file:///Users/ktietz/demo/mc3/conda-bld/affine_1629890479180/work
 appdirs==1.4.4
