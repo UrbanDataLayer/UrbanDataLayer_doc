@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UDL Visualization &mdash; UDL 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            UDL
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UDL%20Class.html">UDL Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UDL%20Transformation.html">UDL Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UDL%20Alignment.html">UDL Alignment</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UDL</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">UDL Visualization</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/UDL Visualization.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <style>
+
+.red {
+    color:#A42115;
+}
+.blue {
+    color:#3659D7;
+}
+.green {
+    color:green;
+}
+
+</style><section id="udl-visualization">
+<h1>UDL Visualization<a class="headerlink" href="#udl-visualization" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">grid_render(grid_data,</span> <span class="pre">show=True,</span> <span class="pre">save=False,</span> <span class="pre">filename='grid.png',</span> <span class="pre">dpi=300,</span> <span class="pre">figsize=(10,10))</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>grid_data</strong> (<em>GridLayer</em>) - The grid data to be visualised</p></li>
+<li><p><strong>filename</strong> (<em>string</em>) - Path to the figure to be saved</p></li>
+<li><p><strong>dpi</strong> (<em>int</em>) - Dot per inch</p></li>
+<li><p><strong>figsize</strong> (<em>tuple</em>) - The size of the figure</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">graph_render(graph_data,</span> <span class="pre">show=True,</span> <span class="pre">save=False,</span> <span class="pre">filename='graph.png',</span> <span class="pre">dpi=300,</span> <span class="pre">figsize=(10,10))</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>graph_data</strong> (<em>GraphLayer</em>) - The graph data to be visualised</p></li>
+<li><p><strong>filename</strong> (<em>string</em>) - Path to the figure to be saved</p></li>
+<li><p><strong>dpi</strong> (<em>int</em>) - Dot per inch</p></li>
+<li><p><strong>figsize</strong> (<em>tuple</em>) - The size of the figure</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, UDL Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

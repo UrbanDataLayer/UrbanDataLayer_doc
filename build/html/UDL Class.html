@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UDL Class &mdash; UDL 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="UDL Transformation" href="UDL%20Transformation.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="Getting%20Started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            UDL
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">UDL Class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grid">Grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graph">Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#point">Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linestring">Linestring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#polygon">Polygon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UDL%20Transformation.html">UDL Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UDL%20Alignment.html">UDL Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UDL%20Utilities.html">UDL Utilities</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UDL</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">UDL Class</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/UDL Class.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <style>
+
+.red {
+    color:#A42115;
+}
+.blue {
+    color:#3659D7;
+}
+.green {
+    color:green;
+}
+
+</style><section id="udl-class">
+<h1>UDL Class<a class="headerlink" href="#udl-class" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/Class.png"><img alt="_images/Class.png" class="align-center" src="_images/Class.png" style="width: 168.29999999999998px; height: 306.0px;" /></a>
+</section>
+<section id="grid">
+<h2>Grid<a class="headerlink" href="#grid" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GridLayer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">start_lat</span><span class="p">,</span> <span class="n">end_lat</span><span class="p">,</span> <span class="n">step_lat</span><span class="p">,</span> <span class="n">start_lon</span><span class="p">,</span> <span class="n">end_lon</span><span class="p">,</span>
+    <span class="n">step_lon</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) - Name of the layer</p></li>
+<li><p><strong>start_lat</strong> (<em>float</em>) - Starting latitude</p></li>
+<li><p><strong>end_lat</strong> (<em>float</em>) - Ending latitude</p></li>
+<li><p><strong>step_lat</strong> (<em>float</em>) - The difference of latitude between cells</p></li>
+<li><p><strong>start_lon</strong> (<em>float</em>) - Starting lontitude</p></li>
+<li><p><strong>end_lon</strong> (<em>float</em>) - Ending lontitude</p></li>
+<li><p><strong>step_lon</strong> (<em>float</em>) - The difference of lontitude between cells</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of dataset</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">construct_grid</span> (data)</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>grid_data</strong> (<em>GridLayer</em>) - The grid data in the form of GridLayer</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">get_value</span> (lat, lon):</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>lat</strong> (<em>float</em>) - Latitude to be queried</p></li>
+<li><p><strong>lon</strong> (<em>float</em>) - Longitude to be queried</p></li>
+</ul>
+<p>RETURNS:</p>
+<ul class="simple">
+<li><p><strong>value</strong> (<em>float</em>) - Value at the queried location</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">get_value_by_grid</span> (lat, lon):</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>lat</strong> (<em>numpy.array</em>) - Latitudes to be queried in an array of one dimension</p></li>
+<li><p><strong>lon</strong> (<em>numpy.array</em>) - Longitudes to be queried in an array of one dimension</p></li>
+</ul>
+<p>RETURNS:</p>
+<ul class="simple">
+<li><p><strong>value</strong> (<em>numpy.array</em>) - Values at the queried locations in an array of one dimension</p></li>
+</ul>
+</section>
+<section id="graph">
+<h2>Graph<a class="headerlink" href="#graph" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GraphLayer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The methods of <a class="reference external" href="https://networkx.org/">NetworkX</a> are also available for the GraphLayer’s data object (GraphLayer.data).</p>
+</div>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) - Name of the layer</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of the dataset</p></li>
+<li><p><strong>directed</strong> (<em>bool</em>) - Whether the graph is directed</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">construct_node</span> (node_label, latitude, longitude, node_attribute=None)</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>node_label</strong> (<em>list</em>) -  The list of the name of node</p></li>
+<li><p><strong>latitude</strong> (<em>list[float]</em>) - The list of the latitude of node</p></li>
+<li><p><strong>longitude</strong> (<em>list[float]</em>) - The list of the longitude of node</p></li>
+<li><p><strong>node_attribute</strong> (<em>list</em>) - The list of the attribute (whose name is layer’s name) values of node (optional)</p></li>
+</ul>
+<p>RETURNS:</p>
+<ul class="simple">
+<li><p><strong>node_list</strong> (<em>list[tuple]</em>) - The list of the tuple which can be used to construct the graph nodes</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">construct_edge</span> (source: list, target: list, edge_attribute=None, edge_weight=None)</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>source</strong> (<em>list</em>) - The list of the source nodes of each edge</p></li>
+<li><p><strong>target</strong> (<em>list</em>) - The list of the target nodes of each edge</p></li>
+<li><p><strong>edge_attribute</strong> (<em>string</em>) - The attribute name of edge (optional)</p></li>
+<li><p><strong>edge_weight</strong> (<em>list[float]</em>) - The list of the weight of edge (optional)</p></li>
+</ul>
+<p>RETURNS:</p>
+<ul class="simple">
+<li><p><strong>edge_list</strong> (<em>list[tuple]</em>) - The list of the tuple which can be used to construct the graph egdes</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">construct_graph</span> (node_label, latitude, longitude, source: list, target: list, node_attribute=None, edge_attribute=None, edge_weight=None)</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>node_label</strong> (<em>list</em>) -  The list of the name of node</p></li>
+<li><p><strong>latitude</strong> (<em>list[float]</em>) - The list of the latitude of node</p></li>
+<li><p><strong>longitude</strong> (<em>list[float]</em>) - The list of the longitude of node</p></li>
+<li><p><strong>source</strong> (<em>list</em>) - The list of the source nodes of each edge</p></li>
+<li><p><strong>target</strong> (<em>list</em>) - The list of the target nodes of each edge</p></li>
+<li><p><strong>node_attribute</strong> (<em>list[string]</em>) - The list of the attribute (whose name is layer’s name) values of node (optional)</p></li>
+<li><p><strong>edge_attribute</strong> (<em>string</em>) - The attribute name of edge (optional)</p></li>
+<li><p><strong>edge_weight</strong> (<em>list[float]</em>) - The list of the weight of edge (optional)</p></li>
+</ul>
+<p>RETURNS:</p>
+<ul class="simple">
+<li><p><strong>graph</strong> (<em>GraphLayer</em>) - The graph data in the form of GraphLayer</p></li>
+</ul>
+</section>
+<section id="point">
+<h2>Point<a class="headerlink" href="#point" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PointLayer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">column_list</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The methods of <a class="reference external" href="https://pandas.pydata.org/docs/reference/frame.html">pandas.DataFrame</a> are also available for the PointLayer’s data object (PointLayer.data).</p>
+</div>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) - Name of the layer</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of the dataset</p></li>
+<li><p><strong>column_list</strong> (<em>list[string]</em>) - The list of the attribute names of the point data</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">add_points</span> (data_df)</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>data_df</strong> (<em>pandas.DataFrame</em>) - The dataframe of the point data</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">delete_point</span> (lat, lon)</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>lat</strong> (<em>float</em>) - Latitude of the point to be deleted</p></li>
+<li><p><strong>lon</strong> (<em>float</em>) - Longitude of the point to be deleted</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">get_value</span> (lat, lon, feature_name=None)</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>lat</strong> (<em>float</em>) - Latitude of the point to be queried</p></li>
+<li><p><strong>lon</strong> (<em>float</em>) - Longitude of the point to be queried</p></li>
+<li><p><strong>feature_name</strong> (<em>list[string]</em>) - The attribute name of the point data to be queried (optional)</p></li>
+</ul>
+<p>RETURNS:</p>
+<ul class="simple">
+<li><p><strong>value</strong> (<em>numpy.array</em>) - Value at the queried location</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">get_value_by_range</span> (start_lat, end_lat, start_lon, end_lon, feature_name=None)</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>start_lat</strong> (<em>float</em>) - Starting latitude of the range to be queried</p></li>
+<li><p><strong>end_lat</strong> (<em>float</em>) - Ending latitude of the range to be queried</p></li>
+<li><p><strong>start_lon</strong> (<em>float</em>) - Starting longitude of the range to be queried</p></li>
+<li><p><strong>end_lon</strong> (<em>float</em>) - Ending longitude of the range to be queried</p></li>
+<li><p><strong>feature_name</strong> (<em>list[string]</em>) - The attribute name of the point data to be queried (optional)</p></li>
+</ul>
+<p>RETURNS:</p>
+<ul class="simple">
+<li><p><strong>value</strong> (<em>numpy.array</em>) - Value at the queried location</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">to_gpd</span> ()</div>
+</div>
+<p>RETURNS:</p>
+<ul class="simple">
+<li><p><strong>data</strong> (<em>geopandas.GeoDataFrame</em>) - The geopandas dataframe of the point data</p></li>
+</ul>
+</section>
+<section id="linestring">
+<h2>Linestring<a class="headerlink" href="#linestring" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinestringLayer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">column_list</span><span class="o">=</span><span class="p">[])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The methods of <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/geodataframe.html">geopandas.GeoDataFrame</a> are also available for the LinestringLayer’s data object (LinestringLayer.data).</p>
+</div>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) - Name of the layer</p></li>
+<li><p><strong>file</strong> (<em>string</em>) - The path of the file (the file can be read by geopandas, e.g. shapefile and GeoJson) which contains the linestring data. If the file is not given, the linestring data will be empty.</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of the dataset</p></li>
+<li><p><strong>column_list</strong> (<em>list[string]</em>) - The list of the attribute names of the linestring data</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">add_polygons</span> (data_gdf)</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>data_gdf</strong> (<em>geopandas.GeoDataFrame</em>) - The geopandas dataframe of the linestring data to be added</p></li>
+</ul>
+</section>
+<section id="polygon">
+<h2>Polygon<a class="headerlink" href="#polygon" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PolygonLayer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">column_list</span><span class="o">=</span><span class="p">[])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The methods of <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/geodataframe.html">geopandas.GeoDataFrame</a> are also available for the PolygonLayer’s data object (PolygonLayer.data).</p>
+</div>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) - Name of the layer</p></li>
+<li><p><strong>file</strong> (<em>string</em>) - The path of the file (the file can be read by geopandas, e.g. shapefile and GeoJson) which contains the polygon data. If the file is not given, the polygon data will be empty.</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of the dataset</p></li>
+<li><p><strong>column_list</strong> (<em>list[string]</em>) - The list of the attribute names of the polygon data</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="red">add_polygons</span> (data_gdf)</div>
+</div>
+<p>PARAMETERS:</p>
+<ul class="simple">
+<li><p><strong>data_gdf</strong> (<em>geopandas.GeoDataFrame</em>) - The geopandas dataframe of the polygon data to be added</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Getting%20Started.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="UDL%20Transformation.html" class="btn btn-neutral float-right" title="UDL Transformation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, UDL Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+.. role:: red
+    :class: red
+
+.. role:: blue
+    :class: blue
+
+.. role:: green
+    :class: green
+
+.. raw:: html
+
+    <style>
+
+    .red {
+        color:#A42115;
+    }
+    .blue {
+        color:#3659D7;
+    }
+    .green {
+        color:green;
+    }
+
+    </style>
+
+
+UDL Visualization 
+~~~~~~~~~~~~~~~~~~~
+
+``grid_render(grid_data, show=True, save=False, filename='grid.png', dpi=300, figsize=(10,10))``
+
+| :blue:`PARAMETERS`:
+
+- **grid_data** (*GridLayer*) - The grid data to be visualised
+- **filename** (*string*) - Path to the figure to be saved
+- **dpi** (*int*) - Dot per inch
+- **figsize** (*tuple*) - The size of the figure
+
+
+
+``graph_render(graph_data, show=True, save=False, filename='graph.png', dpi=300, figsize=(10,10))``
+
+| :blue:`PARAMETERS`:
+
+
+- **graph_data** (*GraphLayer*) - The graph data to be visualised
+- **filename** (*string*) - Path to the figure to be saved
+- **dpi** (*int*) - Dot per inch
+- **figsize** (*tuple*) - The size of the figure
+
+   

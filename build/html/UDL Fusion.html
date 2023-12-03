@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UDL Fusion &mdash; UDL 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="UDL Utilities" href="UDL%20Utilities.html" />
+    <link rel="prev" title="UDL Alignment" href="UDL%20Alignment.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            UDL
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="UDL%20Class.html">UDL Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UDL%20Transformation.html">UDL Transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UDL%20Alignment.html">UDL Alignment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">UDL Fusion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UDL%20Utilities.html">UDL Utilities</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UDL</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">UDL Fusion</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/UDL Fusion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <style>
+
+.red {
+    color:#A42115;
+}
+.blue {
+    color:#3659D7;
+}
+.green {
+    color:green;
+}
+
+</style><section id="udl-fusion">
+<h1>UDL Fusion<a class="headerlink" href="#udl-fusion" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/Fusion.png"><img alt="_images/Fusion.png" class="align-center" src="_images/Fusion.png" style="width: 185.4px; height: 306.0px;" /></a>
+</section>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">grid_fusion(grid_layer_list,</span> <span class="pre">name=None,</span> <span class="pre">year=None,</span> <span class="pre">column_list=None,</span> <span class="pre">start_lat=None,</span> <span class="pre">end_lat=None,</span> <span class="pre">start_lon=None,</span> <span class="pre">end_lon=None,</span> <span class="pre">mode=&quot;concat&quot;)</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The mode “concat” is the only one that returns a numpy.array. The other modes return a GridLayer object. “concat” mode concatenates the features of the grid layers and stacks in feature dimensions.</p>
+</div>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>grid_layer_list</strong> (<em>list(GridLayer)</em>) - List of grid layers to be fused</p></li>
+<li><p><strong>name</strong> (<em>str</em>) - Name of the new grid layer</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - Year of the new grid layer</p></li>
+<li><p><strong>column_list</strong> (<em>list(str)</em>) - List of columns to be fused</p></li>
+<li><p><strong>start_lat</strong> (<em>float</em>) - Start latitude of the new grid layer</p></li>
+<li><p><strong>end_lat</strong> (<em>float</em>) - End latitude of the new grid layer</p></li>
+<li><p><strong>start_lon</strong> (<em>float</em>) - Start longitude of the new grid layer</p></li>
+<li><p><strong>end_lon</strong> (<em>float</em>) - End longitude of the new grid layer</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) - Mode of fusion. “concat”, “sum”, “avg”, “max”, “min” or “random”. Defaults to “concat”.</p>
+<ul>
+<li><p>“concat”</p></li>
+<li><p>“avg”</p></li>
+<li><p>“sum”</p></li>
+<li><p>“max”</p></li>
+<li><p>“min”</p></li>
+<li><p>“random”</p></li>
+</ul>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="blue">RETURNS</span>:</div>
+</div>
+<ul class="simple">
+<li><p>numpy.array if mode is “concat”. Otherwise returns a GridLayer object.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">grid_fusion(graph_layer_list,</span> <span class="pre">name=None,</span> <span class="pre">year=None,</span> <span class="pre">column_list=None,</span> <span class="pre">start_lat=None,</span> <span class="pre">end_lat=None,</span> <span class="pre">start_lon=None,</span> <span class="pre">end_lon=None,</span> <span class="pre">mode=&quot;concat&quot;)</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The mode “concat” combine all node and edge features into one graph layer.</p>
+</div>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>graph_layer_list</strong> (<em>list(GraphLayer)</em>) - List of graph layers to be fused</p></li>
+<li><p><strong>name</strong> (<em>str</em>) - Name of the new graph layer</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - Year of the new graph layer</p></li>
+<li><p><strong>column_list</strong> (<em>list(str)</em>) - List of columns to be fused</p></li>
+<li><p><strong>start_lat</strong> (<em>float</em>) - Start latitude of the new graph layer</p></li>
+<li><p><strong>end_lat</strong> (<em>float</em>) - End latitude of the new graph layer</p></li>
+<li><p><strong>start_lon</strong> (<em>float</em>) - Start longitude of the new graph layer</p></li>
+<li><p><strong>end_lon</strong> (<em>float</em>) - End longitude of the new graph layer</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) - Mode of fusion. “concat”, “sum”, “avg”, “max”, “min” or “random”. Defaults to “concat”.</p>
+<ul>
+<li><p>“concat”</p></li>
+<li><p>“avg”</p></li>
+<li><p>“sum”</p></li>
+<li><p>“max”</p></li>
+<li><p>“min”</p></li>
+<li><p>“random”</p></li>
+</ul>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">point_fusion(point_layer_list,</span> <span class="pre">name=None,</span> <span class="pre">year=None,</span> <span class="pre">column_list=None,</span> <span class="pre">start_lat=None,</span> <span class="pre">end_lat=None,</span> <span class="pre">start_lon=None,</span> <span class="pre">end_lon=None)</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>point_layer_list</strong> (<em>list(PointLayer)</em>) - List of point layers to be fused</p></li>
+<li><p><strong>name</strong> (<em>str</em>) - Name of the new point layer</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - Year of the new point layer</p></li>
+<li><p><strong>column_list</strong> (<em>list(str)</em>) - List of columns to be fused</p></li>
+<li><p><strong>start_lat</strong> (<em>float</em>) - Start latitude of the new point layer</p></li>
+<li><p><strong>end_lat</strong> (<em>float</em>) - End latitude of the new point layer</p></li>
+<li><p><strong>start_lon</strong> (<em>float</em>) - Start longitude of the new point layer</p></li>
+<li><p><strong>end_lon</strong> (<em>float</em>) - End longitude of the new point layer</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="blue">RETURNS</span>:</div>
+</div>
+<ul class="simple">
+<li><p>PointLayer object</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">grid_point_fusion(grid_layer_list,</span> <span class="pre">name=None,</span> <span class="pre">year=None,</span> <span class="pre">start_lat=None,</span> <span class="pre">end_lat=None,</span> <span class="pre">start_lon=None,</span> <span class="pre">end_lon=None,</span> <span class="pre">step_lat=None,</span> <span class="pre">step_lon=None,</span> <span class="pre">random_seed=21)</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is used to fuse grid layers into a point layer. For each GridLayer, there will be points randomly spreaded according to the density times the value of the corresponding grid cell.</p>
+</div>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>grid_layer_list</strong> (<em>list(GridLayer)</em>) - List of grid layers to be fused</p></li>
+<li><p><strong>name</strong> (<em>str</em>) - Name of the new point layer</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - Year of the new point layer</p></li>
+<li><p><strong>start_lat</strong> (<em>float</em>) - Start latitude of the fused grid layer</p></li>
+<li><p><strong>end_lat</strong> (<em>float</em>) - End latitude of the fused grid layer</p></li>
+<li><p><strong>start_lon</strong> (<em>float</em>) - Start longitude of the fused grid layer</p></li>
+<li><p><strong>end_lon</strong> (<em>float</em>) - End longitude of the fused grid layer</p></li>
+<li><p><strong>step_lat</strong> (<em>float</em>) - Step latitude of the fused grid layer</p></li>
+<li><p><strong>step_lon</strong> (<em>float</em>) - Step longitude of the fused grid layer</p></li>
+<li><p><strong>random_seed</strong> (<em>int</em>) - Random seed for the random selection of the points</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="blue">RETURNS</span>:</div>
+</div>
+<ul class="simple">
+<li><p>PointLayer object</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="UDL%20Alignment.html" class="btn btn-neutral float-left" title="UDL Alignment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="UDL%20Utilities.html" class="btn btn-neutral float-right" title="UDL Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, UDL Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
