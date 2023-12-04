@@ -88,7 +88,27 @@
 
 </style><section id="udl-utilities">
 <h1>UDL Utilities<a class="headerlink" href="#udl-utilities" title="Link to this heading"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">graphlayer_to_geometric(graph_data)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">get_coord_type(filedir,</span> <span class="pre">row,</span> <span class="pre">col)</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>filedir</strong> (<em>str</em>) - The directory of the TIF file waiting to be transformed into a grid layer.</p></li>
+<li><p><strong>row</strong> (<em>int</em>) - The row number of the TIF file.</p></li>
+<li><p><strong>col</strong> (<em>int</em>) - The column number of the TIF file.</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="blue">RETURNS</span>:</div>
+</div>
+<ul class="simple">
+<li><p>coordinate (<em>tuple</em>): The coordinate of the positions at the given row and column.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get the type of the coordinate, run <cite>get_coord_type(filedir, 0, 0)</cite> to get the coordinate of the top left corner.
+If the tuple is (latitute, longitude), then the parameter “coord_type” is “latlon”. Otherwise, the parameter “coord_type” is “lonlat”.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">graphlayer_to_torch(graph_data)</span></code></p>
 <div class="line-block">
 <div class="line"><span class="blue">PARAMETERS</span>:</div>
 </div>
@@ -114,6 +134,20 @@
 <ul class="simple">
 <li><p>The DGL data object.</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">graphlayer_to_nx(graph_data)</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>graph_data</strong> (<em>GraphLayer</em>) - The graph layer data to be transformed into a NetworkX data object</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="blue">RETURNS</span>:</div>
+</div>
+<ul class="simple">
+<li><p>The NetworkX data object.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">graphlayer_to_igraph(graph_data)</span></code></p>
 </section>
 
 

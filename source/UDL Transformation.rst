@@ -93,7 +93,7 @@ Raw to Layer API
 .. code-block:: python
 
     from transformation import *
-    nightlights_grid = tiff_to_grid("data/nightlights.tif", "nightlights", 30, 32.4, 0.01, 120, 122, 0.01, 2013, "max", "latlon", "avg")
+    nightlights_grid = tiff_to_grid("nightlights", ["data/nightlights.tif"], 30, 32.4, 0.01, 120, 122, 0.01, 2013, "max", "latlon", "avg")
 
 
 ``csv_to_grid(name, filedir, start_lat, end_lat, start_lon, end_lon, step_lat, step_lon, year=None, mode="avg")``

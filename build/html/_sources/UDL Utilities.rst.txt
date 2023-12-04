@@ -27,7 +27,22 @@
 UDL Utilities 
 ~~~~~~~~~~~~~~~~~~~
 
-``graphlayer_to_geometric(graph_data)``
+``get_coord_type(filedir, row, col)``
+
+| :blue:`PARAMETERS`:
+
+- **filedir** (*str*) - The directory of the TIF file waiting to be transformed into a grid layer.
+- **row** (*int*) - The row number of the TIF file.
+- **col** (*int*) - The column number of the TIF file.
+
+| :blue:`RETURNS`:
+
+- coordinate (*tuple*): The coordinate of the positions at the given row and column.
+
+.. note:: To get the type of the coordinate, run `get_coord_type(filedir, 0, 0)` to get the coordinate of the top left corner.
+    If the tuple is (latitute, longitude), then the parameter "coord_type" is "latlon". Otherwise, the parameter "coord_type" is "lonlat".
+
+``graphlayer_to_torch(graph_data)``
 
 | :blue:`PARAMETERS`:
 
@@ -47,5 +62,17 @@ UDL Utilities
 | :blue:`RETURNS`:
 
 - The DGL data object.
+
+``graphlayer_to_nx(graph_data)``
+
+| :blue:`PARAMETERS`:
+
+- **graph_data** (*GraphLayer*) - The graph layer data to be transformed into a NetworkX data object
+
+| :blue:`RETURNS`:
+
+- The NetworkX data object.
+
+``graphlayer_to_igraph(graph_data)``
 
    

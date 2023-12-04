@@ -10,8 +10,6 @@ Welcome to UDL's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   Introduction
-   Getting Started
    UDL Class
    UDL Transformation
    UDL Alignment
