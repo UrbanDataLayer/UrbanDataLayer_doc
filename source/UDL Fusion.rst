@@ -64,7 +64,7 @@ API
 
 - numpy.array if mode is "concat". Otherwise returns a GridLayer object.
 
-``grid_fusion(graph_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None, mode="concat")``
+``graph_fusion(graph_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None, mode="concat")``
 
 .. note:: The mode "concat" combine all node and edge features into one graph layer.
 
