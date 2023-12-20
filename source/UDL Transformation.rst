@@ -176,7 +176,7 @@ Raw to Layer API
 
 .. code-block:: python
 
-    roads_graph = tab_to_graph("data/roads.csv", "roads", 30, 32.4, 120, 122, 2013)
+    roads_graph = json_to_graph("roads", "test/roadnet.json")
 
 
 ``csv_to_graph(name, filedir, year=None, attr=None, directed=False)``
@@ -402,69 +402,65 @@ Layer to Layer API
 
 - Point UDL object
 
-``grid_granularity_convert(grid_data, target_name=None, target_lat_step, target_lon_step, start_lat, end_lat, start_lon, end_lon)``
+..
+ ``grid_granularity_convert(grid_data, target_name=None, target_lat_step, target_lon_step, start_lat, end_lat, start_lon, end_lon)``
+ | :blue:`PARAMETERS`:
+  - **grid_data** (*GridLayer*) - The original grid data to be converted
+  - **target_name** (*string*) - Name of the target grid data
+  - **target_lat_step** - Step of latitude in the target grid data
+  - **target_lon_step** - Step of longitude in the target grid data
+  - **start_lat** - Starting latitude in the target grid data
+  - **end_lat** - Ending longitude in the target grid data
+  - **start_lon** - Starting longitude in the target grid data
+  - **end_lon** - Ending longitude in the target grid data
 
-| :blue:`PARAMETERS`:
+..
+ ``grid_merge(grid_data1, grid_data2, target_name=None, aggregation)``
+ Two merged grids should have the same granularity.
+..
+    | :blue:`PARAMETERS`:
 
-- **grid_data** (*GridLayer*) - The original grid data to be converted
-- **target_name** (*string*) - Name of the target grid data
-- **target_lat_step** - Step of latitude in the target grid data
-- **target_lon_step** - Step of longitude in the target grid data
-- **start_lat** - Starting latitude in the target grid data
-- **end_lat** - Ending longitude in the target grid data
-- **start_lon** - Starting longitude in the target grid data
-- **end_lon** - Ending longitude in the target grid data
+    - **grid_data1** (*GridLayer*) - The first grid data to be merged
+    - **grid_data2** (*GraphLayer*) - The second grid data to be merged
+    - **target_name** (*string*) - The name of the merged grid
+    - **aggregation** (*string/function*) - Agregation method, including:
 
+    + "sum"
+    + "average"
+    + "max"
+    + "min"
+    + other user-defined aggregation methods
 
-
-
-``grid_merge(grid_data1, grid_data2, target_name=None, aggregation)``
-
-Two merged grids should have the same granularity.
-
-| :blue:`PARAMETERS`:
-
-- **grid_data1** (*GridLayer*) - The first grid data to be merged
-- **grid_data2** (*GraphLayer*) - The second grid data to be merged
-- **target_name** (*string*) - The name of the merged grid
-- **aggregation** (*string/function*) - Agregation method, including:
-
-  + "sum"
-  + "average"
-  + "max"
-  + "min"
-  + other user-defined aggregation methods
-
-| :blue:`RETURNS`:
-  
-- Grid UDL object
+    | :blue:`RETURNS`:
+    
+    - Grid UDL object
 
 
-.. give a specific example of the aggregation function
+    .. give a specific example of the aggregation function
 
-``graph_align(graph_data1, graph_data2, target_name=None, start_lat, end_lat, start_lon, end_lon)``
+    ``graph_align(graph_data1, graph_data2, target_name=None, start_lat, end_lat, start_lon, end_lon)``
 
 
-``graph_merge(graph_data1, graph_data2, target_name=None, start_lat, end_lat, start_lon, end_lon, aggregation)``
+    ``graph_merge(graph_data1, graph_data2, target_name=None, start_lat, end_lat, start_lon, end_lon, aggregation)``
 
-- **graph_data1** (*GraphLayer*) - The first graph data to be merged
-- **graph_data2** (*GraphLayer*) - The second graph data to be merged
-- **target_name** (*string*) - The name of the merged graph
-- **start_lat** - Starting latitude
-- **end_lat** - Ending latitude
-- **start_lon** - Starting longitude
-- **end_lon** - Ending longitude
-- **aggregation** (*string/function*) - Agregation method, including:
+    - **graph_data1** (*GraphLayer*) - The first graph data to be merged
+    - **graph_data2** (*GraphLayer*) - The second graph data to be merged
+    - **target_name** (*string*) - The name of the merged graph
+    - **start_lat** - Starting latitude
+    - **end_lat** - Ending latitude
+    - **start_lon** - Starting longitude
+    - **end_lon** - Ending longitude
+    - **aggregation** (*string/function*) - Agregation method, including:
 
-  + "sum"
-  + "average"
-  + "max"
-  + "min"
-  + other user-defined aggregation methods
+    + "sum"
+    + "average"
+    + "max"
+    + "min"
+    + other user-defined aggregation methods
 
-| :blue:`RETURNS`:
+    | :blue:`RETURNS`:
 
-- Graph UDL object
+    - Graph UDL object
 
 
 
