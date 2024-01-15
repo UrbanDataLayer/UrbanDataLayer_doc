@@ -146,6 +146,22 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p>grid_to_graph()</p></td>
+<td><p>graph</p></td>
+<td><p>Transform the GridLayer data to GraphLayer data by converting the grid cells to nodes</p></td>
+</tr>
+<tr class="row-odd"><td><p>grid_to_point()</p></td>
+<td><p>point</p></td>
+<td><p>Transform the GridLayer data to PointLayer data by converting the grid cells to points</p></td>
+</tr>
+<tr class="row-even"><td><p>graph_to_point()</p></td>
+<td><p>point</p></td>
+<td><p>Transform the GraphLayer data to PointLayer data by converting the nodes to points</p></td>
+</tr>
+<tr class="row-odd"><td><p>graph_to_grid()</p></td>
+<td><p>grid</p></td>
+<td><p>Transform the GraphLayer data to GridLayer data by aggregating the nodes in the same grid cell</p></td>
+</tr>
 <tr class="row-even"><td><p>point_to_grid()</p></td>
 <td><p>grid</p></td>
 <td><p>Transform the PointLayer data to GridLayer data by aggregating the points in the same grid cell</p></td>
@@ -154,21 +170,13 @@
 <td><p>grid</p></td>
 <td><p>Transform the LinestringLayer data to GridLayer data by counting the vertices in the same grid cell</p></td>
 </tr>
-<tr class="row-even"><td><p>polygon_to_grid()</p></td>
-<td><p>grid</p></td>
-<td><p>Transform the PolygonLayer data to GridLayer data by counting the vertices in the same grid cell</p></td>
+<tr class="row-even"><td><p>linestring_to_point()</p></td>
+<td><p>point</p></td>
+<td><p>Transform the LinestringLayer data to PointLayer data by converting the vertices to points</p></td>
 </tr>
-<tr class="row-odd"><td><p>point_to_graph()</p></td>
-<td><p>graph</p></td>
-<td><p>Transform the PointLayer data to GraphLayer data by converting the points to nodes</p></td>
-</tr>
-<tr class="row-even"><td><p>polygon_to_graph()</p></td>
+<tr class="row-odd"><td><p>polygon_to_graph()</p></td>
 <td><p>graph</p></td>
 <td><p>Transform the PolygonLayer data to GraphLayer data by converting the vertices to nodes and the segments to edges</p></td>
-</tr>
-<tr class="row-odd"><td><p>grid_to_point()</p></td>
-<td><p>point</p></td>
-<td><p>Transform the GridLayer data to PointLayer data by converting the grid cells to points</p></td>
 </tr>
 </tbody>
 </table>
@@ -253,7 +261,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">taxi_pick_grid</span> <span class="o">=</span> <span class="n">tab_to_grid</span><span class="p">(</span><span class="s2">&quot;pick and drop.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;Pick up of Shanghai taxi&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">32.4</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">json_to_graph(name,</span> <span class="pre">filedir,</span> <span class="pre">year=None,</span> <span class="pre">directed=False,</span> <span class="pre">edge_attribute=None)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">json_to_graph(name,</span> <span class="pre">filedir,</span> <span class="pre">year=None,</span> <span class="pre">directed=False,</span> <span class="pre">edge_attribute=None,</span> <span class="pre">edge_wight=None)</span></code></p>
 <div class="line-block">
 <div class="line"><span class="blue">PARAMETERS</span>:</div>
 </div>
@@ -290,6 +298,7 @@
 <li><p><strong>year</strong> (<em>int</em>)- The year of dataset</p></li>
 <li><p><strong>directed</strong> (<em>bool</em>) - Whether the graph is directed. Defaults to False</p></li>
 <li><p><strong>edge_attribute</strong> (<em>string</em>) - The attribute of the edge. Defaults to None</p></li>
+<li><p><strong>edge_weight</strong> (<em>list</em>) - The list of the edge weight. Defaults to None</p></li>
 </ul>
 <div class="line-block">
 <div class="line"><span class="blue">RETURNS</span>:</div>
@@ -297,29 +306,52 @@
 <ul class="simple">
 <li><p>Graph UDL object</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roads_graph</span> <span class="o">=</span> <span class="n">tab_to_graph</span><span class="p">(</span><span class="s2">&quot;data/roads.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;roads&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">32.4</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="mi">2013</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roads_graph</span> <span class="o">=</span> <span class="n">json_to_graph</span><span class="p">(</span><span class="s2">&quot;roads&quot;</span><span class="p">,</span> <span class="s2">&quot;test/roadnet.json&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">csv_to_graph(name,</span> <span class="pre">filedir,</span> <span class="pre">year=None,</span> <span class="pre">attr=None,</span> <span class="pre">directed=False)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">csv_to_point(name,</span> <span class="pre">filedir,</span> <span class="pre">year=None,</span> <span class="pre">column_list=[])</span></code></p>
 <div class="line-block">
 <div class="line"><span class="blue">PARAMETERS</span>:</div>
 </div>
 <ul>
 <li><p><strong>name</strong> (<em>string</em>) - Name of the layer</p></li>
-<li><p><strong>file</strong> (<em>string</em>) - Path to the tabular data file (CSV)</p>
+<li><p><strong>filedir</strong> (<em>string</em>) - Path to the tabular data file (CSV)</p>
+<p>The file should contain the following columns (the rest columns should be the element in column_list):</p>
+<ul class="simple">
+<li><p>“latitude”</p></li>
+<li><p>“longitude”</p></li>
+<li><p>name (the attribute value of the node)</p></li>
+</ul>
+</li>
+<li><p><strong>year</strong> (<em>int</em>) - Year of the data</p></li>
+<li><p><strong>column_list</strong> (<em>list[string]</em>) - The list of the column names of the data to be added as the attributes of the point</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">csv_to_graph(name,</span> <span class="pre">node_filedir,</span> <span class="pre">edge_filedir,</span> <span class="pre">year=None,</span> <span class="pre">directed=False,</span> <span class="pre">edge_attribute=None,</span> <span class="pre">edge_weight=None)</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul>
+<li><p><strong>name</strong> (<em>string</em>) - Name of the layer</p></li>
+<li><p><strong>node_file</strong> (<em>string</em>) - Path to the tabular data file (CSV)</p>
 <p>The file should contain the following columns:</p>
 <ul class="simple">
 <li><p>“id” (also is the “source” node of the edge)</p></li>
 <li><p>“latitude”</p></li>
 <li><p>“longitude”</p></li>
-<li><p>name (the attribute value of the node)</p></li>
-<li><p>“target” (optional)</p></li>
-<li><p>“weight” (optional)</p></li>
+<li><p>name (optional, the attribute value of the node)</p></li>
+</ul>
+</li>
+<li><p><strong>edge_file</strong> (<em>string</em>) - Path to the tabular data file (CSV)</p>
+<p>The file should contain the following columns:</p>
+<ul class="simple">
+<li><p>“target”</p></li>
+<li><p>“weight”</p></li>
+<li><p>“edge_weight” (optional)</p></li>
 </ul>
 </li>
 <li><p><strong>year</strong> (<em>int</em>) - Year of the data</p></li>
-<li><p><strong>attr</strong> (<em>string</em>) - The attribute name of the edge. Defaults to None</p></li>
 <li><p><strong>directed</strong> (<em>bool</em>) - Whether the graph is directed. Defaults to False</p></li>
+<li><p><strong>edge_attribute</strong> (<em>string</em>) - The attribute of the edge. Defaults to None</p></li>
 </ul>
 <div class="line-block">
 <div class="line"><span class="blue">RETURNS</span>:</div>
@@ -357,7 +389,7 @@
 <ul class="simple">
 <li><p>Point UDL object</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">csv_to_linestring(name,</span> <span class="pre">filedir,</span> <span class="pre">sort_column,</span> <span class="pre">group_column=None,</span> <span class="pre">column_list=[],</span> <span class="pre">year=None)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">csv_to_linestring(name,</span> <span class="pre">filedir,</span> <span class="pre">sort_column,</span> <span class="pre">group_column=None,</span> <span class="pre">year=None)</span></code></p>
 <ul>
 <li><p><strong>name</strong> (<em>string</em>) - Name of the layer</p></li>
 <li><p><strong>filedir</strong> (<em>string</em>) - Path to the tabular data file (CSV)</p>
@@ -370,7 +402,6 @@
 </li>
 <li><p><strong>sort_column</strong> (<em>string</em>) - The column name of the data to be sorted as the sequence of the linestring</p></li>
 <li><p><strong>group_column</strong> (<em>string</em>) - The column name of the data to be grouped as the division of the linestring. If the column is None, the data will be a single linestring.</p></li>
-<li><p><strong>column_list</strong> (<em>list[string]</em>) - The list of the column names of the data to be added as the attributes of the linestring</p></li>
 <li><p><strong>year</strong> (<em>int</em>) - Year of the data</p></li>
 </ul>
 <div class="line-block">
@@ -379,7 +410,7 @@
 <ul class="simple">
 <li><p>Linestring UDL object</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">json_to_polygon(name:</span> <span class="pre">str,</span> <span class="pre">filedir:</span> <span class="pre">str,</span> <span class="pre">year=None,</span> <span class="pre">column_list=[],</span> <span class="pre">output_dir=None,</span> <span class="pre">encoding=&quot;utf-8&quot;)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">json_to_polygon(name:</span> <span class="pre">str,</span> <span class="pre">filedir:</span> <span class="pre">str,</span> <span class="pre">year=None,</span> <span class="pre">column_list=[],</span> <span class="pre">encoding=&quot;utf-8&quot;)</span></code></p>
 <ul>
 <li><p><strong>name</strong> (<em>string</em>) - Name of the layer</p></li>
 <li><p><strong>filedir</strong> (<em>string</em>) - Path to the data file (JSON)</p>
@@ -422,6 +453,89 @@
 <section id="layer-to-layer-api">
 <h2>Layer to Layer API<a class="headerlink" href="#layer-to-layer-api" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="_images/trans.png"><img alt="_images/trans.png" class="align-center" src="_images/trans.png" style="width: 510.88px; height: 339.68px;" /></a>
+<p><code class="docutils literal notranslate"><span class="pre">grid_to_graph(grid_data,</span> <span class="pre">target_name=None,</span> <span class="pre">year=None)</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>grid_data</strong> (<em>GridLayer</em>) - The grid data to be transformed</p></li>
+<li><p><strong>target_name</strong> (<em>string</em>) - The name of the graph transformed to</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of dataset</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="blue">RETURNS</span>:</div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Graph UDL object</dt><dd><ul>
+<li><p>The node_labels are assigned by the sequence of the vertices of the grid whose format are {row}_{col}</p></li>
+<li><p>The egdes exist between the adjacent vertices of the grid</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">grid_to_point(grid_data,</span> <span class="pre">target_name=None,</span> <span class="pre">year=None)</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>grid_data</strong> (<em>GridLayer</em>) - The grid data to be transformed</p></li>
+<li><p><strong>target_name</strong> (<em>string</em>) - The name of the point transformed to</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of dataset</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="blue">RETURNS</span>:</div>
+</div>
+<ul class="simple">
+<li><p>Point UDL object</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">graph_to_point(graph_data,</span> <span class="pre">target_name=None,</span> <span class="pre">year=None)</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>graph_data</strong> (<em>GraphLayer</em>) - The graph data to be transformed</p></li>
+<li><p><strong>target_name</strong> (<em>string</em>) - The name of the point transformed to</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of dataset</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="blue">RETURNS</span>:</div>
+</div>
+<ul class="simple">
+<li><p>Point UDL object</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">graph_to_grid(graph_data,</span> <span class="pre">start_lat,</span> <span class="pre">end_lat,</span> <span class="pre">start_lon,</span> <span class="pre">step_lat,</span> <span class="pre">end_lon,</span> <span class="pre">step_lon,</span> <span class="pre">target_name=None,</span> <span class="pre">year=None,</span> <span class="pre">mode=&quot;avg&quot;)</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>graph_data</strong> (<em>GraphLayer</em>) - The graph data to be transformed</p></li>
+<li><p><strong>start_lat</strong> (<em>float</em>) - Starting latitude</p></li>
+<li><p><strong>end_lat</strong> (<em>float</em>) - Ending latitude</p></li>
+<li><p><strong>start_lon</strong> (<em>float</em>) - Starting longitude</p></li>
+<li><p><strong>end_lon</strong> (<em>float</em>) - Ending longitude</p></li>
+<li><p><strong>step_lat</strong> (<em>float</em>) - Step of latitude</p></li>
+<li><p><strong>step_lon</strong> (<em>float</em>) - Step of longitude</p></li>
+<li><p><strong>target_name</strong> (<em>string</em>) - The name of the grid transformed to</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of dataset</p></li>
+<li><p><strong>mode</strong> (<em>string</em>) - The way of aggregation. “sum”, “avg”, “max”, “min” or “random” (random). Defaults to “avg”.</p>
+<ul>
+<li><p>“avg”</p></li>
+<li><p>“sum”</p></li>
+<li><p>“max”</p></li>
+<li><p>“min”</p></li>
+<li><p>“rand”</p></li>
+<li><p>“count”</p></li>
+</ul>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="blue">RETURNS</span>:</div>
+</div>
+<ul class="simple">
+<li><p>Grid UDL object</p></li>
+</ul>
 <p><code class="docutils literal notranslate"><span class="pre">point_to_grid(point_data,</span> <span class="pre">target_name=None,</span> <span class="pre">start_lat,</span> <span class="pre">end_lat,</span> <span class="pre">step_lat,</span> <span class="pre">start_lon,</span> <span class="pre">end_lon,</span> <span class="pre">step_lon,</span> <span class="pre">mode=&quot;avg&quot;)</span></code></p>
 <div class="line-block">
 <div class="line"><span class="blue">PARAMETERS</span>:</div>
@@ -441,7 +555,7 @@
 <li><p>“sum”</p></li>
 <li><p>“max”</p></li>
 <li><p>“min”</p></li>
-<li><p>“random”</p></li>
+<li><p>“rand”</p></li>
 </ul>
 </li>
 </ul>
@@ -451,7 +565,22 @@
 <ul class="simple">
 <li><p>Grid UDL object</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">linestring_to_grid(linestring_data,</span> <span class="pre">target_name=None,</span> <span class="pre">start_lat,</span> <span class="pre">end_lat,</span> <span class="pre">step_lat,</span> <span class="pre">start_lon,</span> <span class="pre">end_lon,</span> <span class="pre">step_lon)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">linestring_to_point(linestring_data,</span> <span class="pre">target_name=None,</span> <span class="pre">year=None)</span></code></p>
+<div class="line-block">
+<div class="line"><span class="blue">PARAMETERS</span>:</div>
+</div>
+<ul class="simple">
+<li><p><strong>linestring_data</strong> (<em>LinestringLayer</em>) - The linestring data to be transformed</p></li>
+<li><p><strong>target_name</strong> (<em>string</em>) - The name of the point transformed to</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of dataset</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><span class="blue">RETURNS</span>:</div>
+</div>
+<ul class="simple">
+<li><p>Point UDL object</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">linestring_to_grid(linestring_data,</span> <span class="pre">start_lat,</span> <span class="pre">end_lat,</span> <span class="pre">start_lon,</span> <span class="pre">end_lon,</span> <span class="pre">step_lat,</span> <span class="pre">step_lon,</span> <span class="pre">target_name=None,</span> <span class="pre">year=None)</span></code></p>
 <div class="line-block">
 <div class="line"><span class="blue">PARAMETERS</span>:</div>
 </div>
@@ -460,10 +589,12 @@
 <li><p><strong>target_name</strong> (<em>string</em>) - The name of the grid transformed to</p></li>
 <li><p><strong>start_lat</strong> (<em>float</em>) - Starting latitude</p></li>
 <li><p><strong>end_lat</strong> (<em>float</em>) - Ending latitude</p></li>
+<li><p><strong>start_lon</strong> (<em>float</em>) - Starting longitude</p></li>
+<li><p><strong>end_lon</strong> (<em>float</em>) - Ending longitude</p></li>
 <li><p><strong>step_lat</strong> (<em>float</em>) - The step of latitude of the grid</p></li>
-<li><p><strong>start_lon</strong> (<em>float</em>) - Starting longitude</p></li>
-<li><p><strong>end_lon</strong> (<em>float</em>) - Ending longitude</p></li>
 <li><p><strong>step_lon</strong> (<em>float</em>) - The step of longitude of the grid</p></li>
+<li><p><strong>target_name</strong> (<em>string</em>) - The name of the grid transformed to</p></li>
+<li><p><strong>year</strong> (<em>int</em>) - The year of dataset</p></li>
 </ul>
 <div class="line-block">
 <div class="line"><span class="blue">RETURNS</span>:</div>
@@ -471,134 +602,13 @@
 <ul class="simple">
 <li><p>Grid UDL object</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">polygon_to_grid(polygon_data,</span> <span class="pre">target_name=None,</span> <span class="pre">start_lat,</span> <span class="pre">end_lat,</span> <span class="pre">step_lat,</span> <span class="pre">start_lon,</span> <span class="pre">end_lon,</span> <span class="pre">step_lon)</span></code></p>
-<ul class="simple">
-<li><p><strong>polygon_data</strong> (<em>PolygonLayer</em>) - The polygon data to be transformed</p></li>
-<li><p><strong>target_name</strong> (<em>string</em>) - The name of the grid transformed to</p></li>
-<li><p><strong>start_lat</strong> (<em>float</em>) - Starting latitude</p></li>
-<li><p><strong>end_lat</strong> (<em>float</em>) - Ending latitude</p></li>
-<li><p><strong>step_lat</strong> (<em>float</em>) - Difference of latitude between each cell</p></li>
-<li><p><strong>start_lon</strong> (<em>float</em>) - Starting longitude</p></li>
-<li><p><strong>end_lon</strong> (<em>float</em>) - Ending longitude</p></li>
-<li><p><strong>step_lon</strong> (<em>float</em>) - Difference of lontitude between each cell</p></li>
-</ul>
-<div class="line-block">
-<div class="line"><span class="blue">RETURNS</span>:</div>
-</div>
-<ul class="simple">
-<li><p>Grid UDL object</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">point_to_graph(point_data,</span> <span class="pre">target_name=None,</span> <span class="pre">directed=False,</span> <span class="pre">edge_attribute=None,</span> <span class="pre">edge_weight=None)</span></code></p>
-<div class="line-block">
-<div class="line"><span class="blue">PARAMETERS</span>:</div>
-</div>
-<ul class="simple">
-<li><p><strong>point_data</strong> (<em>PointLayer</em>) - The point data to be transformed</p></li>
-<li><p><strong>target_name</strong> (<em>string</em>) - The name of the grid transformed to</p></li>
-<li><p><strong>directed</strong> (<em>bool</em>) - Whether the graph is directed. Defaults to False</p></li>
-<li><p><strong>edge_attribute</strong> (<em>string</em>) - The attribute name of the edge. Defaults to None</p></li>
-<li><p><strong>edge_weight</strong> (<em>list</em>) - The attribute value of the edge weight. Defaults to None</p></li>
-</ul>
-<div class="line-block">
-<div class="line"><span class="blue">RETURNS</span>:</div>
-</div>
-<ul class="simple">
-<li><p>Graph UDL object</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">polygon_to_graph(polygon_data,</span> <span class="pre">target_name=None,</span> <span class="pre">edge_attribute=None,</span> <span class="pre">edge_weight=None)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">polygon_to_graph(polygon_data,</span> <span class="pre">target_name=None)</span></code></p>
 <div class="line-block">
 <div class="line"><span class="blue">PARAMETERS</span>:</div>
 </div>
 <ul class="simple">
 <li><p><strong>polygon_data</strong> (<em>PolygonLayer</em>) - The polygon data to be transformed</p></li>
-<li><p><strong>target_name</strong> (<em>string</em>) - The name of the grid transformed to</p></li>
-<li><p><strong>edge_attribute</strong> (<em>string</em>) - The attribute name of the edge (should be the attribute in polygon data’s features). Defaults to None</p></li>
-<li><p><strong>edge_weight</strong> (<em>list</em>) - The attribute value of the edge weight. If the edge_attribute is specified, the edge_weight defaults to the value of the edge_attribute. Otherwise, the edge_weight defaults to None</p></li>
-</ul>
-<div class="line-block">
-<div class="line"><span class="blue">RETURNS</span>:</div>
-</div>
-<ul class="simple">
-<li><p>Graph UDL object</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">grid_to_point(grid_data,</span> <span class="pre">target_name=None,</span> <span class="pre">start_lat=None,</span> <span class="pre">end_lat=None,</span> <span class="pre">step_lat=None,</span> <span class="pre">start_lon=None,</span> <span class="pre">end_lon=None,</span> <span class="pre">step_lon=None)</span></code></p>
-<div class="line-block">
-<div class="line"><span class="blue">PARAMETERS</span>:</div>
-</div>
-<ul class="simple">
-<li><p><strong>grid_data</strong> (<em>GridLayer</em>) - The grid data to be transformed</p></li>
-<li><p><strong>target_name</strong> (<em>string</em>) - The name of the point transformed to</p></li>
-<li><p><strong>start_lat</strong> (<em>float</em>) - Starting latitude</p></li>
-<li><p><strong>end_lat</strong> (<em>float</em>) - Ending latitude</p></li>
-<li><p><strong>step_lat</strong> (<em>float</em>) - The step of latitude of the grid</p></li>
-<li><p><strong>start_lon</strong> (<em>float</em>) - Starting longitude</p></li>
-<li><p><strong>end_lon</strong> (<em>float</em>) - Ending longitude</p></li>
-<li><p><strong>step_lon</strong> (<em>float</em>) - The step of longitude of the grid</p></li>
-</ul>
-<div class="line-block">
-<div class="line"><span class="blue">RETURNS</span>:</div>
-</div>
-<ul class="simple">
-<li><p>Point UDL object</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">grid_granularity_convert(grid_data,</span> <span class="pre">target_name=None,</span> <span class="pre">target_lat_step,</span> <span class="pre">target_lon_step,</span> <span class="pre">start_lat,</span> <span class="pre">end_lat,</span> <span class="pre">start_lon,</span> <span class="pre">end_lon)</span></code></p>
-<div class="line-block">
-<div class="line"><span class="blue">PARAMETERS</span>:</div>
-</div>
-<ul class="simple">
-<li><p><strong>grid_data</strong> (<em>GridLayer</em>) - The original grid data to be converted</p></li>
-<li><p><strong>target_name</strong> (<em>string</em>) - Name of the target grid data</p></li>
-<li><p><strong>target_lat_step</strong> - Step of latitude in the target grid data</p></li>
-<li><p><strong>target_lon_step</strong> - Step of longitude in the target grid data</p></li>
-<li><p><strong>start_lat</strong> - Starting latitude in the target grid data</p></li>
-<li><p><strong>end_lat</strong> - Ending longitude in the target grid data</p></li>
-<li><p><strong>start_lon</strong> - Starting longitude in the target grid data</p></li>
-<li><p><strong>end_lon</strong> - Ending longitude in the target grid data</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">grid_merge(grid_data1,</span> <span class="pre">grid_data2,</span> <span class="pre">target_name=None,</span> <span class="pre">aggregation)</span></code></p>
-<p>Two merged grids should have the same granularity.</p>
-<div class="line-block">
-<div class="line"><span class="blue">PARAMETERS</span>:</div>
-</div>
-<ul class="simple">
-<li><p><strong>grid_data1</strong> (<em>GridLayer</em>) - The first grid data to be merged</p></li>
-<li><p><strong>grid_data2</strong> (<em>GraphLayer</em>) - The second grid data to be merged</p></li>
-<li><p><strong>target_name</strong> (<em>string</em>) - The name of the merged grid</p></li>
-<li><p><strong>aggregation</strong> (<em>string/function</em>) - Agregation method, including:</p>
-<ul>
-<li><p>“sum”</p></li>
-<li><p>“average”</p></li>
-<li><p>“max”</p></li>
-<li><p>“min”</p></li>
-<li><p>other user-defined aggregation methods</p></li>
-</ul>
-</li>
-</ul>
-<div class="line-block">
-<div class="line"><span class="blue">RETURNS</span>:</div>
-</div>
-<ul class="simple">
-<li><p>Grid UDL object</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">graph_align(graph_data1,</span> <span class="pre">graph_data2,</span> <span class="pre">target_name=None,</span> <span class="pre">start_lat,</span> <span class="pre">end_lat,</span> <span class="pre">start_lon,</span> <span class="pre">end_lon)</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">graph_merge(graph_data1,</span> <span class="pre">graph_data2,</span> <span class="pre">target_name=None,</span> <span class="pre">start_lat,</span> <span class="pre">end_lat,</span> <span class="pre">start_lon,</span> <span class="pre">end_lon,</span> <span class="pre">aggregation)</span></code></p>
-<ul class="simple">
-<li><p><strong>graph_data1</strong> (<em>GraphLayer</em>) - The first graph data to be merged</p></li>
-<li><p><strong>graph_data2</strong> (<em>GraphLayer</em>) - The second graph data to be merged</p></li>
-<li><p><strong>target_name</strong> (<em>string</em>) - The name of the merged graph</p></li>
-<li><p><strong>start_lat</strong> - Starting latitude</p></li>
-<li><p><strong>end_lat</strong> - Ending latitude</p></li>
-<li><p><strong>start_lon</strong> - Starting longitude</p></li>
-<li><p><strong>end_lon</strong> - Ending longitude</p></li>
-<li><p><strong>aggregation</strong> (<em>string/function</em>) - Agregation method, including:</p>
-<ul>
-<li><p>“sum”</p></li>
-<li><p>“average”</p></li>
-<li><p>“max”</p></li>
-<li><p>“min”</p></li>
-<li><p>other user-defined aggregation methods</p></li>
-</ul>
-</li>
+<li><p><strong>target_name</strong> (<em>string</em>) - The name of the grid transformed tof the edge_attribute is specified, the edge_weight defaults to the value of the edge_attribute. Otherwise, the edge_weight defaults to None</p></li>
 </ul>
 <div class="line-block">
 <div class="line"><span class="blue">RETURNS</span>:</div>

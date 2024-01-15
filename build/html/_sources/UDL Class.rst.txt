@@ -36,7 +36,7 @@ Grid
 ------------------
 .. code-block:: python
 
-    class GridLayer(name, start_lat, end_lat, step_lat, start_lon, end_lon, 
+    class GridLayer(name, start_lat, end_lat, start_lon, end_lon, step_lat, 
         step_lon, year=None)
 
 | :blue:`PARAMETERS`:
@@ -44,9 +44,9 @@ Grid
 - **name** (*string*) - Name of the layer
 - **start_lat** (*float*) - Starting latitude
 - **end_lat** (*float*) - Ending latitude
-- **step_lat** (*float*) - The difference of latitude between cells
 - **start_lon** (*float*) - Starting lontitude
 - **end_lon** (*float*) - Ending lontitude
+- **step_lat** (*float*) - The difference of latitude between cells
 - **step_lon** (*float*) - The difference of lontitude between cells
 - **year** (*int*) - The year of dataset
 
@@ -55,7 +55,7 @@ Grid
 
 PARAMETERS:
 
-- **grid_data** (*GridLayer*) - The grid data in the form of GridLayer
+- **data** (*numpy.array*) - The data of GridLayer
 
 | :red:`get_value` (lat, lon):
 
