@@ -28,11 +28,11 @@ UDL Class
 
 Overview
 ------------------
-.. image:: ../img/Class.png
+.. image:: ../img/Layer.png
    :scale: 30%
    :align: center
 
-Grid
+GridLayer
 ------------------
 .. code-block:: python
 
@@ -79,7 +79,7 @@ RETURNS:
 
 - **value** (*numpy.array*) - Values at the queried locations in an array of one dimension
 
-Graph
+GraphLayer
 ------------------
 .. code-block:: python
 
@@ -139,7 +139,7 @@ RETURNS:
 - **graph** (*GraphLayer*) - The graph data in the form of GraphLayer
 
 
-Point
+PointLayer
 ------------------
 .. code-block:: python
 
@@ -200,7 +200,7 @@ RETURNS:
 
 - **data** (*geopandas.GeoDataFrame*) - The geopandas dataframe of the point data
 
-Linestring
+LinestringLayer
 ------------------
 .. code-block:: python
 
@@ -224,7 +224,7 @@ PARAMETERS:
 - **data_gdf** (*geopandas.GeoDataFrame*) - The geopandas dataframe of the linestring data to be added
 
 
-Polygon
+PolygonLayer
 ------------------
 .. code-block:: python
 

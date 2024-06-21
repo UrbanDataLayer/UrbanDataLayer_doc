@@ -67,6 +67,8 @@ Raw to Layer API
 
 ``tif_to_grid(name, filedir, start_lat, end_lat, start_lon, end_lon, step_lat, step_lon, year=None, band=1, coord_type="latlon", mode="avg")``
 
+.. note:: Before using the function, the coordinate order type of the tif file should be revealed by ``get_coord_type`` (in utils).
+
 | :blue:`PARAMETERS`:
 
 - **name** (*string*) - Name of the layer

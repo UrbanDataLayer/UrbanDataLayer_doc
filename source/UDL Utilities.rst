@@ -42,11 +42,15 @@ UDL Utilities
 .. note:: To get the type of the coordinate, run `get_coord_type(filedir, 0, 0)` to get the coordinate of the top left corner.
     If the tuple is (latitute, longitude), then the parameter "coord_type" is "latlon". Otherwise, the parameter "coord_type" is "lonlat".
 
+.. warning:: Adding GDAL as a dependency to the package or using "pip install gdal" may fail. It is recommended to install GDAL using the following command: "conda install -c conda-forge gdal".
+
 ``graphlayer_to_torch(graph_data)``
 
 | :blue:`PARAMETERS`:
 
 - **graph_data** (*GraphLayer*) - The graph layer data to be transformed into a PyTorch Geometric data object
+- **node_attr** (*list[string]*) - The list of converted node attributes
+- **edge_attr** (*list[string]*) - The list of converted edge attributes
 
 | :blue:`RETURNS`:
 
@@ -58,6 +62,8 @@ UDL Utilities
 | :blue:`PARAMETERS`:
 
 - **graph_data** (*GraphLayer*) - The graph layer data to be transformed into a DGL data object
+- **node_attr** (*list[string]*) - The list of converted node attributes
+- **edge_attr** (*list[string]*) - The list of converted edge attributes
 
 | :blue:`RETURNS`:
 
