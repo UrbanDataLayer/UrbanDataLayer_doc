@@ -37,7 +37,7 @@ Overview
 API
 ------------------
 
-``grid_fusion(grid_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None, mode="concat")``
+``grid_fusion(grid_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None, mode="concat", )``
 
 .. note:: The mode "concat" is the only one that returns a numpy.array. The other modes return a GridLayer object. "concat" mode concatenates the features of the grid layers and stacks in feature dimensions. 
 
@@ -52,13 +52,16 @@ API
 - **start_lon** (*float*) - Start longitude of the new grid layer
 - **end_lon** (*float*) - End longitude of the new grid layer
 - **mode** (*str*) - Mode of fusion. "concat", "sum", "avg", "max", "min" or "random". Defaults to "concat".
-
+  
   + "concat"
   + "avg"
   + "sum"
   + "max"
   + "min"
   + "random"
+  
+- **user_defined_func** (*Callable*) - User defined function for fusion. If not None, the function will be used for fusion.
+
 
 | :blue:`RETURNS`:
 
@@ -66,7 +69,7 @@ API
 
 ``graph_fusion(graph_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None, mode="concat")``
 
-.. note:: The mode "concat" combine all node and edge features into one graph layer.
+.. note:: The mode "concat" combine all node features into one graph layer. The edge features will be keep the same as the first graph layer in the list.
 
 | :blue:`PARAMETERS`:
 
@@ -79,15 +82,25 @@ API
 - **start_lon** (*float*) - Start longitude of the new graph layer
 - **end_lon** (*float*) - End longitude of the new graph layer
 - **mode** (*str*) - Mode of fusion. "concat", "sum", "avg", "max", "min" or "random". Defaults to "concat".
-
+  
   + "concat"
   + "avg"
   + "sum"
   + "max"
   + "min"
   + "random"
+  
+- **user_defined_func** (*Callable*) - User defined function for fusion. If not None, the function will be used for fusion.
+
+.. note:: The user_defined_func should be a function that describes how to fuse the features of all nodes features. For example:
+    .. code-block:: python
+
+        def user_defined_func(values):
+            return sum(values) / len(values)
 
 ``point_fusion(point_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None)``
+
+.. note:: If the features of the fused point layers exist duplicate columns, the columns will be determined by the first point layer in the list.
 
 | :blue:`PARAMETERS`:
 
@@ -99,6 +112,16 @@ API
 - **end_lat** (*float*) - End latitude of the new point layer
 - **start_lon** (*float*) - Start longitude of the new point layer
 - **end_lon** (*float*) - End longitude of the new point layer
+- **mode** (*str*) - Mode of fusion. "concat", "sum", "avg", "max", "min" or "random". Defaults to "concat".
+
+  + "concat"
+  + "avg"
+  + "sum"
+  + "max"
+  + "min"
+  + "random"
+  
+- **user_defined_func** (*Callable*) - User defined function for fusion. If not None, the function will be used for fusion.
 
 | :blue:`RETURNS`:
 

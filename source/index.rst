@@ -26,13 +26,17 @@ Please make sure **the latest version** is installed, as UDL may be updated freq
 
 .. code-block:: bash
 
-   pip install udlayer          # pip install
+   pip install udlayer(==0.2.1)          # pip install
    pip install --upgrade udlayer  # update if needed
 
 **Note on PyG and DGL Installation**\ :
 Some conversion methods (in *utils*) depends on `torch <https://pytorch.org/>`_, `torch_geometric <https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html#>`_ and `DGL <https://www.dgl.ai/pages/start.html>`_.
 To streamline the installation, UDL does **NOT** install these libraries for you.
 Please install them from the above links if you need to convert the graph data into these two formats, otherwise you can ignore this note.
+
+Quick Start
+============
+We provide complete sample process of “Identification of administrative boundaries” and “pm2.5 prediction” cases to help you get started with UDL in the `UDL repository <https://github.com/SJTU-CILAB/udl>`_.
 
 .. toctree::
    :maxdepth: 2
