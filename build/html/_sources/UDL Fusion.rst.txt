@@ -37,7 +37,7 @@ Overview
 API
 ------------------
 
-``grid_fusion(grid_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None, mode="concat", )``
+``grid_fusion(grid_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None, mode="concat", user_defined_func=None)``
 
 .. note:: The mode "concat" is the only one that returns a numpy.array. The other modes return a GridLayer object. "concat" mode concatenates the features of the grid layers and stacks in feature dimensions. 
 
@@ -67,7 +67,8 @@ API
 
 - numpy.array if mode is "concat". Otherwise returns a GridLayer object.
 
-``graph_fusion(graph_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None, mode="concat")``
+
+``graph_fusion(graph_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None, mode="concat", user_defined_func=None)``
 
 .. note:: The mode "concat" combine all node features into one graph layer. The edge features will be keep the same as the first graph layer in the list.
 
@@ -98,7 +99,7 @@ API
         def user_defined_func(values):
             return sum(values) / len(values)
 
-``point_fusion(point_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None)``
+``point_fusion(point_layer_list, name=None, year=None, column_list=None, start_lat=None, end_lat=None, start_lon=None, end_lon=None, mode="concat", user_defined_func=None)``
 
 .. note:: If the features of the fused point layers exist duplicate columns, the columns will be determined by the first point layer in the list.
 
