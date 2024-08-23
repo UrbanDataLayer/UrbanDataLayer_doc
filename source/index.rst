@@ -26,10 +26,10 @@ Please make sure **the latest version** is installed, as UDL may be updated freq
 
 .. code-block:: bash
 
-   pip install udlayer(==0.2.1)          # pip install
+   pip install udlayer          # pip install
    pip install --upgrade udlayer  # update if needed
 
-.. note:: If some error about *gdal* appears when installing, please install *geopandas* package manually (from wheel or use conda). It may be caused by the dependency of *geopandas*.
+.. note:: If some error about *gdal* appears when installing, please install *geopandas* package manually (from wheel or use conda). It may be caused by the dependency of *geopandas*. Please ensure that the latest udlayer version is installed.
 
 
 **Note on PyG and DGL Installation**\ :
