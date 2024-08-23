@@ -276,6 +276,10 @@ Please make sure <strong>the latest version</strong> is installed, as UDL may be
 pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>udlayer<span class="w">  </span><span class="c1"># update if needed</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If some error about <em>gdal</em> appears when installing, please install <em>geopandas</em> package manually (from wheel or use conda). It may be caused by the dependency of <em>geopandas</em>.</p>
+</div>
 <p><strong>Note on PyG and DGL Installation</strong>:
 Some conversion methods (in <em>utils</em>) depends on <a class="reference external" href="https://pytorch.org/">torch</a>, <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html#">torch_geometric</a> and <a class="reference external" href="https://www.dgl.ai/pages/start.html">DGL</a>.
 To streamline the installation, UDL does <strong>NOT</strong> install these libraries for you.

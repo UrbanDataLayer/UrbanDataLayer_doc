@@ -29,6 +29,9 @@ Please make sure **the latest version** is installed, as UDL may be updated freq
    pip install udlayer(==0.2.1)          # pip install
    pip install --upgrade udlayer  # update if needed
 
+.. note:: If some error about *gdal* appears when installing, please install *geopandas* package manually (from wheel or use conda). It may be caused by the dependency of *geopandas*.
+
+
 **Note on PyG and DGL Installation**\ :
 Some conversion methods (in *utils*) depends on `torch <https://pytorch.org/>`_, `torch_geometric <https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html#>`_ and `DGL <https://www.dgl.ai/pages/start.html>`_.
 To streamline the installation, UDL does **NOT** install these libraries for you.
